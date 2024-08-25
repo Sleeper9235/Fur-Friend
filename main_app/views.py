@@ -9,8 +9,8 @@ from .models import Animal, AnimalList, AnimalShelter
 
 # Create your views here.
 # Home page - to display login/sign-up
-def home(request):
-    return render(request, 'home.html')
+class Home(LoginView):
+    template_name = 'home.html'
 
 # about the app 
 def about(request):

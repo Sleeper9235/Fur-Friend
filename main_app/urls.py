@@ -5,7 +5,7 @@ from . import views
 
 urlpatterns = [
     # Routes will be added here
-    path('', views.home, name='home'),
+    path('', views.Home.as_view(), name='home'),
     path('about/', views.about, name='about'),
     path('accounts/signup/', views.signup, name='signup'),
     path('profile/', views.profile, name='profile'),
