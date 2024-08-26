@@ -1,0 +1,107 @@
+.card-container {
+    border: 3px solid #343434;
+    box-shadow: 10px 5px 5px #343434;
+    background-color: #85C7F2;
+    width: 300px;
+    height: 450px;
+    border-radius: 7.5%;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.card-header {
+    background-color: #2B59C3;
+    margin-top: 3px;
+    margin-left: 4px;
+    width: 97%;
+    height: 15%;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.card-image {
+    margin-top: 1px;
+    margin-left: 4px;
+    width: 97%;
+    height: 50%;
+} .card-image img{
+    height: 100%;
+    width: 100%;
+}
+
+.card-description {
+    border: 3px solid #343434;
+    background-color: #FFEECF;
+    margin-top: 1px;
+    margin-left: 4px;
+    width: 95%;
+    height: 32%;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+.description{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 100%;
+}
+
+.trait-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+.color-block {
+    opacity: 0.8;
+    margin-left: 5px;
+    padding: 1px;
+    border: 2px solid #343434;
+    border-radius: 15%;
+  }
+
+.icon-container{
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.x-icon {
+  display: block;
+  box-sizing:border-box;
+  width: 100px;
+  height:100px;
+  border-width:3px;
+  border-style: solid;
+  border-color:red;
+  border-radius:100%;
+  background: linear-gradient(-45deg, transparent 0%, transparent 46%, white 46%,  white 56%,transparent 56%, transparent 100%), -webkit-linear-gradient(45deg, transparent 0%, transparent 46%, white 46%,  white 56%,transparent 56%, transparent 100%);
+  background-color:red;
+}.x-icon:hover{
+    box-shadow:0px 0px 5px 2px rgba(0,0,0,0.5);
+}
+
+.check-icon{
+    display: inline-block;
+    transform: rotate(45deg);
+    margin-top: 8px;
+    height: 65px;
+    width: 35px;
+    border-bottom: 14px solid white;
+    border-right: 14px solid white;
+}
+
+.check-background{
+    display: block;
+    box-sizing:border-box;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    background: green;
+}.check-background:hover {
+    box-shadow:0px 0px 5px 2px rgba(0,0,0,0.5);
+}

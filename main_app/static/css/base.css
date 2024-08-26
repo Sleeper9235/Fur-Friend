@@ -1,5 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,600;1,600&display=swap');
 
 body {
-    background-color: black;
-    color: white;
+    font-family: "Rubik", sans-serif;
+    text-align: center;
+    background-color: #85C7F2;
+    height: 100vh;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+}
+
+nav ul li{
+    display: flex;
+    flex-direction: row;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    font-family: "Rubik", sans-serif;
+    font-weight: bolder;
+    background-color:#D36582;
+    border: solid 2px #ffffff;
+    color: #343434;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.nav-a {
+    font-family: "Rubik", sans-serif;
+    font-weight: bold;
+    margin: auto;
+    margin-right: 5px;
+    background-color:#D36582;
+    border: solid 2px #ffffff;
+    color: #343434;
+    padding: 7px;
+    border-radius: 12px;
+    text-decoration: none;
+}
+
+.container-list {
+    position: relative; 
+    margin: 20px 20px;
+    width: 150px; 
+    height: 150px; 
+    overflow: hidden;
+    border-radius: 50%; 
+} 
+
+.container-list img { 
+    width: 100%; 
+    height: 100%;
+}
+
+.animalcontainer {
+  position: relative;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  transition: .5s ease;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-5%, -50%);
+  text-align: center;
+}
+
+.animalcontainer:hover .image {
+  opacity: 0.3;
+}
+
+.animalcontainer:hover .middle {
+  opacity: 1;
+}
+
+.animalName {
+  background-color: #85C7F2;
+  color: black;
+  font-size: 16px;
+  border-radius: 25px;
+  padding: 16px 16px;
+}
+
+#background-container {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #FFEECF;
+    border: solid 20px #D36582;
+    height: 70%;
+    border-radius: 100px;
+    margin-top: 5px;
+}
+
+#card-table{
+    display: flex;
+    flex-direction: column;
+}
+
+#cards {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    overflow: hidden;
+    scroll-behavior: smooth;    
+}
+
+.like{
+    background-color: #FFEECF;
+    border: 0px #FFEECF;
+    padding: 0;
+}
+
+.dont-like{
+    background-color: #FFEECF;
+    border: 0px #FFEECF;
+    padding: 0;
 }

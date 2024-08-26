@@ -1,6 +1,41 @@
 {% extends 'base.html' %}
 {% block content%}
 <h1>Profile Page</h1>
-<h2>Animal Shelter List</h2>
-<h2>"Liked" Animal List</h2>
+<div class="buttons-container">
+    <button class="margin-bottom"><a href="{% url 'animal-shelter-create' %}">Add an Animal Shelter</a></button>
+    <button class="margin-bottom"><a href="{% url 'animal-create' %}">Add an Animal</a></button>
+
+</div>
+<div id = "background-container">
+    <section id="animal-shelter">
+            <div>
+                {% for shelter in animal_shelter %}
+                    {% if user == shelter.user %}
+                        <h2>{{shelter}}</h2>
+                        <div>
+                            {% for animal in my_animals %}
+                                {% if animal.animal_shelter == shelter %}
+                                <a href="{% url 'animal-details' animal.id %}">
+                                    <section class="container-list">
+                                        <div class="animalcontainer">
+                                            <img src={{ animal.image.url }} alt={{animal.name}} class="image"/>
+                                            <div class="middle">
+                                                <div class="animalName">{{animal.name}}</div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </a>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+    </section>
+    <section id="animal-Liked">
+        <h2>"Liked" Animal List</h2>
+    </section>
+</div>
+
+
 {% endblock%}

@@ -11,32 +11,40 @@
     {% endblock %}
   </head>
   <body>
+      <header>
+        </div>
+        <nav>
+          <section id="name">
+            <div id="titleSection">
+                <h1 id="title" class="bold">Fur Friends</h1>
+            </div>
+        </section>
+          <section id="difficultyButtons">
+            <div>
+              <ul>
+                {% if user.is_authenticated %}
+                  <li><a class="nav-a" href="{% url 'profile' %}">Profile</a></li>
+                  <li><a  class="nav-a" href="{% url 'animal-index' %}">Fur Friend Search</a></li>
+                  <li>
+                    <form id="logout-form" method="post" action="{% url 'admin:logout' %}">
+                      {% csrf_token %}
+                      <button type="submit">Log out</button>
+                    </form>
+                  </li>
+                {% else %}
+                  <li><a href="{% url 'about' %}">About</a></li>
+                  <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                {% endif %}
+              </ul>
+            </div>
+        </section>
+        </nav>
+      </header>
 
-    <header>
-      </div>
-      <nav>
-        <ul>
-          {% if user.is_authenticated %}
-            <li><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="{% url 'profile' %}">Profile</a></li>
-            <li><a href="{% url 'animal-index' %}">Swipe Page</a></li>
-            <li>
-              <form id="logout-form" method="post" action="{% url 'admin:logout' %}">
-                {% csrf_token %}
-                <button type="submit">Log out</button>
-              </form>
-            </li>
-          {% else %}
-            <li><a href="{% url 'about' %}">About</a></li>
-            <li><a href="{% url 'signup' %}">Sign Up</a></li>
-          {% endif %}
-        </ul>
-      </nav>
-    </header>
 
-    <main>
-     {% block content %} 
-     {% endblock %}
-     </main>
+      {% block content %} 
+      {% endblock %}
+      </main>
+  </div>
   </body>
 </html>

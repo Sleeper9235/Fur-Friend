@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Animal, AnimalList, AnimalShelter
+from .models import Animal, AnimalList, AnimalShelter, Trait
 
 # Register your models here.
 class AnimalAdmin(admin.ModelAdmin):
@@ -10,7 +10,8 @@ class AnimalShelterAdmin(admin.ModelAdmin):
     
 class AnimalListAdmin(admin.ModelAdmin):
     readonly_fields = ('id',)
-
+    
 admin.site.register(Animal, AnimalAdmin,)
 admin.site.register(AnimalShelter, AnimalShelterAdmin)
 admin.site.register(AnimalList, AnimalListAdmin)
+admin.site.register(Trait)

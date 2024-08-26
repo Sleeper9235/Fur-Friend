@@ -1,5 +1,44 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/animals/animals-index.css' %}"/>
+{% endblock %} 
 {% block content%}
 <h1>Swiping Page</h1>
+
+<div id = "background-container">
+    <div id="card-table">
+        <div id="cards">
+            {% for animal in animals %}
+            {{animal.placeholder}}
+            <div class='card-container'>
+                <div class='card-header'></div>
+                <div class='card-image'><img src="{{animal.image.url}}" /></div>
+                <div class='card-description'>
+                    <div class='description'>Name: {{animal.name}}</div>
+                    <div class='description'>Breed: {{animal.breed}}</div>
+                    <div class='description'>Spayed/Neutered: {{animal.fixed}}</div>
+                    <div class='description'>
+                        {% if animal.personality.count %}
+                            {% for trait in animal.personality.all %}
+                            Traits:
+                            <div class="trait-container">
+                                <div class="color-block" style="background-color: {{ trait.color }}">
+                                    {{ trait.name }}
+                                </div>
+                            </div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+        <div class='icon-container'>
+            <button class="dont-like"><div class='x-icon'></div></button>
+            <button class="like"><div class='check-background'><div class='check-icon'></div></div></button>
+        </div>
+    </div>
+</div>
 
 {% endblock%}
