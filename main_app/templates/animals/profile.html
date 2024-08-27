@@ -1,64 +1,63 @@
 {% extends 'base.html' %}
 {% block content%}
-<h1>Profile Page</h1>
-<div class="buttons-container">
-    <div>
-        <button><a href="{% url 'animal-create' %}">Add an Animal</a></button>
-        <button><a href="{% url 'your-animals' %}">Your Animals</a></button>
-    </div>
-
-    <div>
-        {% if not animal_list %}
-            <button><a href="{% url 'animal-list-create' %}">Create your List</a></button>
-        {% else %}
-            {% for list in animal_list %}
-                {% if user != list.user %}
-                    <button><a href="{% url 'animal-list-create' %}">Create your List</a></button>
-                {% endif %}  
-            {% endfor %}
-        {% endif %}
-
-        {% if not animal_shelter %}
-            <button><a href="{% url 'animal-shelter-create' %}">Add an Animal Shelter</a></button>
-        {% else %}
-            {% for shelter in animal_shelter %}
-                {% if user != shelter.user %}
-                    <button><a href="{% url 'animal-shelter-create' %}">Add an Animal Shelter</a></button>
-                {% endif %}        
-            {% endfor %}
-        {% endif %}
-    </div>
-</div>
-<div id = "background-container">
-    <section id="animal-shelter">
-            <div>
-                {% for shelter in animal_shelter %}
-                    {% if user == shelter.user %}
-                        <h2>{{shelter}}</h2>
-                        <div>
-                            {% for animal in shelter.animal.all %}
-                                <a href="{% url 'animal-details' animal.id %}">
-                                    <section class="container-list">
-                                        <div class="animalcontainer">
-                                            <img src={{ animal.image.url }} alt={{animal.name}} class="image"/>
-                                            <div class="middle">
-                                                <div class="animalName">{{animal.name}}</div>
-                                            </div>
-                                        </div>
-                                    </section>
-                                </a>
-                            {% endfor %}
-                        </div>
-                    {% endif %}
+<div id = "background-container-profile">
+    <div class="buttons-container">
+        <div>
+            <button><a href="{% url 'animal-create' %}">Add an Animal</a></button>
+            <button><a href="{% url 'your-animals' %}">Your Animals</a></button>
+        </div>
+        <div>
+            {% if not animal_list %}
+                <button><a href="{% url 'animal-list-create' %}">Create your List</a></button>
+            {% else %}
+                {% for list in animal_list %}
+                    {% if user != list.user %}
+                        <button><a href="{% url 'animal-list-create' %}">Create your List</a></button>
+                    {% endif %}  
                 {% endfor %}
-            </div>
-    </section>
-    <section id="animal-Liked">
+            {% endif %}
+
+            {% if not animal_shelter %}
+                <button><a href="{% url 'animal-shelter-create' %}">Add an Animal Shelter</a></button>
+            {% else %}
+                {% for shelter in animal_shelter %}
+                    {% if user != shelter.user %}
+                        <button><a href="{% url 'animal-shelter-create' %}">Add an Animal Shelter</a></button>
+                    {% endif %}        
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    <div>
+        <h1>Profile Page</h1>
+    </div>
+    <div id="lists">
+        <div>
+            {% for shelter in animal_shelter %}
+                {% if user == shelter.user %}
+                    <h2>{{shelter}}</h2>
+                    <div id="shelter">
+                        {% for animal in shelter.animal.all %}
+                            <a class="list-items" href="{% url 'animal-details' animal.id %}">
+                            <section class="container-list">
+                                <div class="animalcontainer">
+                                    <img src={{ animal.image.url }} alt={{animal.name}} class="image"/>
+                                        <div class="middle">
+                                            <div class="animalName">{{animal.name}}</div>
+                                        </div>
+                                </div>
+                            </section>
+                            </a>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
         <div>
             {% for list in animal_list %}
                 {% if user == list.user %}
                     <h2>{{list}}</h2>
-                    <div>
+                    <div id="my-list">
                         {% for animal in list.animals.all %}
                             <a href="{% url 'animal-list-details' animal.id %}">
                                 <section class="container-list">
@@ -75,7 +74,7 @@
                 {% endif %}
             {% endfor %}
         </div>
-    </section>
+    </div>
 </div>
 
 
