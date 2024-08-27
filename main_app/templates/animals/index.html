@@ -7,65 +7,73 @@
 <div id = "background-container">
     <div id="card-table">
         <h1>Find your Fur Friends!</h1>
-        {% for list in animal_list %}
-            {% if animal not in list.animals.all %}
-                    <div id="cards">
-                        <div class='card-container'>
-                            <div class='card-header'></div>
-                            <div class='card-image'><img src="{{animal.image.url}}" /></div>
-                            <div class='card-description'>
-                                <div class='description'>Name: {{animal.name}}</div>
-                                <div class='description'>Breed: {{animal.breed}}</div>
-                                <div class='description'>Spayed/Neutered: {{animal.fixed}}</div>
-                                <div class='description-personality'>
-                                    {% if animal.personality.count %}
-                                    Traits:
-                                        {% for trait in animal.personality.all %}
-                                        <div class="trait-container">
-                                            <div class="color-block" style="background-color: {{ trait.color }}">
-                                                {{ trait.name }}
+    
+        {% if animal != None %}
+            {% for list in animal_list %}
+                {% if animal not in list.animals.all %}
+                    {% if animal.placeholder != " " %}
+                        <div id="cards">
+                            <div class='card-container'>
+                                <div class='card-header'></div>
+                                <div class='card-image'><img src="{{animal.image.url}}" /></div>
+                                <div class='card-description'>
+                                    <div class='description'>Name: {{animal.name}}</div>
+                                    <div class='description'>Breed: {{animal.breed}}</div>
+                                    <div class='description'>Spayed/Neutered: {{animal.fixed}}</div>
+                                    <div class='description-personality'>
+                                        {% if animal.personality.count %}
+                                        Traits:
+                                            {% for trait in animal.personality.all %}
+                                            <div class="trait-container">
+                                                <div class="color-block" style="background-color: {{ trait.color }}">
+                                                    {{ trait.name }}
+                                                </div>
                                             </div>
-                                        </div>
-                                        {% endfor %}
-                                    {% endif %}
-                                </div>
-                                <div class='description-likes'>
-                                    {% if animal.likes.count %}
-                                    Likes:
-                                        {% for like in animal.likes.all %}
-                                        <div class="likes-container">
-                                            <div class="color-block" style="background-color: {{ like.color }}">{{ like.name }}
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                    <div class='description-likes'>
+                                        {% if animal.likes.count %}
+                                        Likes:
+                                            {% for like in animal.likes.all %}
+                                            <div class="likes-container">
+                                                <div class="color-block" style="background-color: {{ like.color }}">{{ like.name }}
+                                                </div>
                                             </div>
-                                        </div>
-                                        {% endfor %}
-                                    {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                    {% endif %}
+                {% else %}
+                    <div>
+                        <p>Animal already in List!
                     </div>
-            {% else %}
-                <div>
-                    <p>Animal already in List!
-                </div>
-            {% endif %}
-            {% endfor %}
-    
-        <div class='icon-container'>
-            <form action="{% url 'animal-index' %}" method="post">
-                {% csrf_token %}
-                <button class="dont-like"><div class='x-icon'></div></button>
-            </form>
-
-            {% for list in animal_list %}
-                {% if list.user == user %}
-                <form action="{% url 'add-animal-list' animal.id  list.id %}" method="post">
-                    {% csrf_token %}
-                    <button class="like"><div class='check-background'><div class='check-icon'></div></div></button>
-                </form>
                 {% endif %}
             {% endfor %}
-        </div>
+
+            <div class='icon-container'>
+                <form action="{% url 'animal-index' %}" method="post">
+                    {% csrf_token %}
+                    <button class="dont-like"><div class='x-icon'></div></button>
+                </form>
+
+                {% for list in animal_list %}
+                    {% if list.user == user %}
+                    <form action="{% url 'add-animal-list' animal.id  list.id %}" method="post">
+                        {% csrf_token %}
+                        <button class="like"><div class='check-background'><div class='check-icon'></div></div></button>
+                    </form>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% else %}
+            <div>
+                <p>No animals in our Shelters!</p>
+            </div>
+        {% endif %}
     </div>
 </div>
-
 {% endblock%}

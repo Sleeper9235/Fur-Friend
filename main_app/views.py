@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin 
 from django.contrib.auth.views import LoginView
+from django.db.models import Q
+
 
 from django.shortcuts import render, redirect
 
@@ -34,10 +36,18 @@ def profile(request):
 # swiping page (all animals to be displayed and 'matching' happens here)
 @login_required
 def animals_index(request):
-    pks = Animal.objects.values_list('pk', flat=True)
-    random_pk = random.choice(pks)
-    animal = Animal.objects.get(pk=random_pk)
+    all_animals = Animal.objects.filter(~Q(placeholder=" "))
+    pks = []
+    for animals in all_animals:
+        pks.append(animals.pk)  
     
+    print(pks)
+    if pks:
+        random_pk = random.choice(pks)
+        animal = Animal.objects.get(pk=random_pk)
+    else:
+        animal = None
+        
     animal_list = AnimalList.objects.filter(user=request.user)
 
     return render(request, 'animals/index.html', {'animal': animal, 'animal_list': animal_list})
