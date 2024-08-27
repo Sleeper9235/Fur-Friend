@@ -148,7 +148,7 @@ class AnimalDelete(LoginRequiredMixin, DeleteView):
     
 class AnimalShelterCreate(LoginRequiredMixin, CreateView):
     model = AnimalShelter
-    fields = ['name']
+    fields = ['name', 'email', 'phone_number']
     
     def form_valid(self, form):
         form.instance.user = self.request.user 
@@ -156,7 +156,7 @@ class AnimalShelterCreate(LoginRequiredMixin, CreateView):
     
 class AnimalShelterUpdate(LoginRequiredMixin, UpdateView):
     model = AnimalShelter
-    fields = ['name']
+    fields = ['name', 'email', 'phone_number']
     
 class AnimalShelterDelete(LoginRequiredMixin, DeleteView):
     model = AnimalShelter
@@ -167,6 +167,10 @@ class AnimalListCreate(LoginRequiredMixin, CreateView):
     model = AnimalList
     fields = ['name']
     
+    def form_valid(self, form):
+        form.instance.user = self.request.user  
+        return super().form_valid(form)
+    
 class AnimalListUpdate(LoginRequiredMixin, UpdateView):
     model = AnimalList
     fields = ['name']
@@ -175,7 +179,5 @@ class AnimalListDelete(LoginRequiredMixin, DeleteView):
     model = AnimalList
     success_url = '/profile/'
     
-    def form_valid(self, form):
-        form.instance.user = self.request.user  
-        return super().form_valid(form)
+
     

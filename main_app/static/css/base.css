@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Happy+Monkey&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
+
 
 body {
     display: flex;
@@ -11,6 +13,14 @@ body {
     height: fit-content;
     width: 98vw;
 }
+
+.bubblegum{
+    font-family: "Bubblegum Sans", sans-serif;
+    font-size: xx-large;
+    font-weight: bolder;
+
+}
+
 
 nav ul {
     display: flex;

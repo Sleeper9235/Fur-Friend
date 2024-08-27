@@ -12,10 +12,11 @@
 
         <form action="" method="post" class="form">
         {% csrf_token %}
-        <a href="{% url 'animal-profile' animal.id %}" class="button-form" >Cancel</a>
+        <a href="{% url 'profile' %}" class="button-form" >Cancel</a>
         <br />
         <br />
         <button type="submit" class="button-form" >Yes - Delete!</button>
+    
         </form>
     </div>
 

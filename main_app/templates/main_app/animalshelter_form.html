@@ -11,7 +11,6 @@
     <div class="page-header">
       {% if object %}
         <h1>Edit {{object.name}}</h1>
-        <a href="{% url 'animal-shelter-delete' animal.id %}" ><button class="button">Delete</button></a>
       {% else %}
         <h1>Add a Shelter</h1>
       {% endif %}
@@ -24,7 +23,12 @@
           {{ form.as_table }}
         </table>
         <button type="submit" class="button-form" >Submit!</button>
+        <br />
+        <br />
       </form>
+    {% if object %}
+      <a href="{% url 'animal-shelter-delete' object.id %}" ><button class="button">Delete</button></a>
+    {% endif%}
     </div>
   </div>
 
