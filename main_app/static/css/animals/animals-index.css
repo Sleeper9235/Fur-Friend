@@ -28,6 +28,7 @@
 } .card-image img{
     height: 100%;
     width: 100%;
+    object-fit:contain;
 }
 
 .card-description {
@@ -64,8 +65,7 @@
 
 .icon-container{
     display: flex;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 30px;
     flex-direction: row;
     justify-content: space-evenly;
 }
@@ -104,4 +104,25 @@
     background: green;
 }.check-background:hover {
     box-shadow:0px 0px 5px 2px rgba(0,0,0,0.5);
+}
+
+.description-personality{
+    display: flex;
+    text-align: left;
+    width: 100%;
+}
+
+.trait-container{
+    display: flex;
+}
+
+
+.description-likes{
+    display: flex;
+    text-align: left;
+    width: 100%;
+}
+
+.likes-container{
+    display: flex;
 }

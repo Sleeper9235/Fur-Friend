@@ -14,17 +14,12 @@
       <header>
         </div>
         <nav>
-          <section id="name">
-            <div id="titleSection">
-                <h1 id="title" class="bold">Fur Friends</h1>
-            </div>
-        </section>
           <section id="difficultyButtons">
             <div>
               <ul>
                 {% if user.is_authenticated %}
                   <li><a class="nav-a" href="{% url 'profile' %}">Profile</a></li>
-                  <li><a  class="nav-a" href="{% url 'animal-index' %}">Fur Friend Search</a></li>
+                  <li><a class="nav-a" href="{% url 'animal-index' %}">Fur Friend Search</a></li>
                   <li>
                     <form id="logout-form" method="post" action="{% url 'admin:logout' %}">
                       {% csrf_token %}
@@ -32,8 +27,9 @@
                     </form>
                   </li>
                 {% else %}
-                  <li><a href="{% url 'about' %}">About</a></li>
-                  <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                  <li><a class="nav-a" href="{% url 'about' %}">About</a></li>
+                  <li><a class="nav-a" href="{% url 'home' %}">Login</a></li>
+                  <li><a class="nav-a" href="{% url 'signup' %}">Sign Up</a></li>
                 {% endif %}
               </ul>
             </div>

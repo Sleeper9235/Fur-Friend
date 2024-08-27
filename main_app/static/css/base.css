@@ -102,7 +102,8 @@ button {
     justify-content: space-evenly;
     background-color: #FFEECF;
     border: solid 20px #D36582;
-    height: 70%;
+    height: fit-content;
+    width: min(100%, fit-content);
     border-radius: 100px;
     margin-top: 5px;
 }
@@ -116,7 +117,6 @@ button {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    overflow: hidden;
     scroll-behavior: smooth;    
 }
 
@@ -130,4 +130,14 @@ button {
     background-color: #FFEECF;
     border: 0px #FFEECF;
     padding: 0;
+}
+
+.buttons-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 5%;
+}.buttons-container div{
+    margin-left: 5px;
+    margin-right: 5px;
 }

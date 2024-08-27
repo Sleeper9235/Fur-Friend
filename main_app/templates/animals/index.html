@@ -4,39 +4,66 @@
 <link rel="stylesheet" href="{% static 'css/animals/animals-index.css' %}"/>
 {% endblock %} 
 {% block content%}
-<h1>Swiping Page</h1>
-
 <div id = "background-container">
     <div id="card-table">
-        <div id="cards">
-            {% for animal in animals %}
-            {{animal.placeholder}}
-            <div class='card-container'>
-                <div class='card-header'></div>
-                <div class='card-image'><img src="{{animal.image.url}}" /></div>
-                <div class='card-description'>
-                    <div class='description'>Name: {{animal.name}}</div>
-                    <div class='description'>Breed: {{animal.breed}}</div>
-                    <div class='description'>Spayed/Neutered: {{animal.fixed}}</div>
-                    <div class='description'>
-                        {% if animal.personality.count %}
-                            {% for trait in animal.personality.all %}
-                            Traits:
-                            <div class="trait-container">
-                                <div class="color-block" style="background-color: {{ trait.color }}">
-                                    {{ trait.name }}
+        <h1>Find your Fur Friends!</h1>
+        {% for list in animal_list %}
+            {% if animal not in list.animals.all %}
+                    <div id="cards">
+                        <div class='card-container'>
+                            <div class='card-header'></div>
+                            <div class='card-image'><img src="{{animal.image.url}}" /></div>
+                            <div class='card-description'>
+                                <div class='description'>Name: {{animal.name}}</div>
+                                <div class='description'>Breed: {{animal.breed}}</div>
+                                <div class='description'>Spayed/Neutered: {{animal.fixed}}</div>
+                                <div class='description-personality'>
+                                    {% if animal.personality.count %}
+                                    Traits:
+                                        {% for trait in animal.personality.all %}
+                                        <div class="trait-container">
+                                            <div class="color-block" style="background-color: {{ trait.color }}">
+                                                {{ trait.name }}
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                                <div class='description-likes'>
+                                    {% if animal.likes.count %}
+                                    Likes:
+                                        {% for like in animal.likes.all %}
+                                        <div class="likes-container">
+                                            <div class="color-block" style="background-color: {{ like.color }}">{{ like.name }}
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    {% endif %}
                                 </div>
                             </div>
-                            {% endfor %}
-                        {% endif %}
+                        </div>
                     </div>
+            {% else %}
+                <div>
+                    <p>Animal already in List!
                 </div>
-            </div>
-        {% endfor %}
-        </div>
+            {% endif %}
+            {% endfor %}
+    
         <div class='icon-container'>
-            <button class="dont-like"><div class='x-icon'></div></button>
-            <button class="like"><div class='check-background'><div class='check-icon'></div></div></button>
+            <form action="{% url 'animal-index' %}" method="post">
+                {% csrf_token %}
+                <button class="dont-like"><div class='x-icon'></div></button>
+            </form>
+
+            {% for list in animal_list %}
+                {% if list.user == user %}
+                <form action="{% url 'add-animal-list' animal.id  list.id %}" method="post">
+                    {% csrf_token %}
+                    <button class="like"><div class='check-background'><div class='check-icon'></div></div></button>
+                </form>
+                {% endif %}
+            {% endfor %}
         </div>
     </div>
 </div>

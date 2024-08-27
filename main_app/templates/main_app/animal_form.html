@@ -5,20 +5,26 @@
 {% endblock %} 
 {% block content %}
 
-<div class="page-header">
-  {% if animal %}
-    <h1>Edit {{ animal.name }}</h1>
-  {% else %}
-    <h1>Add an Animal</h1>
-  {% endif %}
+
+<div id = "background-container">
+  <div>
+    <div class="page-header">
+      {% if animal %}
+        <h1>Edit {{ animal.name }}</h1>
+      {% else %}
+        <h1>Add an Animal</h1>
+      {% endif %}
+    </div>
+
+    <div>
+      <form action="" method="post" class="form-container">
+        {% csrf_token %}
+        <table>
+          {{ form.as_table }}
+        </table>
+        <button type="submit" class="btn submit">Submit!</button>
+      </form>
+    </div>
+  </div>
 </div>
-
-<form action="" method="post" class="form-container">
-  {% csrf_token %}
-  <table>
-    {{ form.as_table }}
-  </table>
-  <button type="submit" class="btn submit">Submit!</button>
-</form>
-
 {% endblock %}

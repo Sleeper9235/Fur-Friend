@@ -4,23 +4,27 @@
 <link rel="stylesheet" href="{% static 'css/form.css' %}" />
 {% endblock %} 
 {% block content %}
-<div class="page-header">
-    {% if object %}
-      <h1>Edit {{object.name}}</h1>
-    {% else %}
-      <h1>Add a Shelter</h1>
-    {% endif %}
-    
-  </div>
-  <div class ="form-container">
-    <form action="" method="post" class="form-container" autocomplete="off">
-      {% csrf_token %}
-      <table>
-        {{ form.as_table }}
-      </table>
-      <button type="submit" class="btn submit">Submit!</button>
-    </form>
-  </div>
 
 
+<div id = "background-container">
+  <div>
+    <div class="page-header">
+      {% if object %}
+        <h1>Edit {{object.name}}</h1>
+      {% else %}
+        <h1>Add a Shelter</h1>
+      {% endif %}
+    </div>
+
+    <div class ="form-container">
+      <form action="" method="post" class="form-container" autocomplete="off">
+        {% csrf_token %}
+        <table>
+          {{ form.as_table }}
+        </table>
+        <button type="submit" class="btn submit">Submit!</button>
+      </form>
+    </div>
+  </div>
+</div>
 {% endblock %}

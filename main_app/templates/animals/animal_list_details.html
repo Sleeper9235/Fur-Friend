@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content%}
-<h1>Detail page for each animal</h1>
+<h1>Detail page for your animal</h1>
 <div id="background-container">
     <div>
         <div>
@@ -16,6 +16,9 @@
                 <p> Gender: {{animal.gender}}</p>
                 <p> Likes: {%for likes in animal.likes.all%}{{likes}}<br />{% endfor %}</p>
                 <p> Personality Traits: {%for trait in animal.personality.all%}{{trait}}<br />{% endfor %}</p>
+                <div class="animal-actions">
+                        <a href="{% url 'list-remove-animal' animal.id %}"><button>Remove From List</button></a>
+                </div> 
             </div>
         </div>
 </div>
