@@ -1,10 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,600;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Happy+Monkey&display=swap');
 
 body {
-    font-family: "Rubik", sans-serif;
+    display: flex;
+    flex-direction: column;
+    font-family: "Happy Monkey", sans-serif;
+    font-size: large;
+    font-weight: bolder;
     text-align: center;
-    background-color: #85C7F2;
+    background-color: #FFFF8F;
     height: 100vh;
+    width: 100vw;
 }
 
 nav ul {
@@ -17,28 +22,40 @@ nav ul li{
     flex-direction: row;
 }
 
+footer {
+    font-size: x-large;
+    width: 100%;
+    height: 80px;
+    padding: 1px;
+    border-radius: 35px;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
 section {
     display: flex;
     justify-content: center;
+    height: 70%;
 }
 
 button {
-    font-family: "Rubik", sans-serif;
     font-weight: bolder;
-    background-color:#D36582;
-    border: solid 2px #ffffff;
+    background-color:#f39c12;
+    border: solid 2px #343434;
     color: #343434;
     padding: 10px;
     border-radius: 12px;
+    margin-bottom: 5px;
 }
 
 .nav-a {
-    font-family: "Rubik", sans-serif;
     font-weight: bold;
     margin: auto;
     margin-right: 5px;
-    background-color:#D36582;
-    border: solid 2px #ffffff;
+    background-color:#f39c12;
+    border: solid 2px #343434;
     color: #343434;
     padding: 7px;
     border-radius: 12px;
@@ -100,10 +117,10 @@ button {
 #background-container {
     display: flex;
     justify-content: space-evenly;
-    background-color: #FFEECF;
-    border: solid 20px #D36582;
-    height: fit-content;
-    width: min(100%, fit-content);
+    background-color: #85c1e9;
+    border: solid 20px #2980b9;
+    height: 100%;
+    width: 50%;
     border-radius: 100px;
     margin-top: 5px;
 }
@@ -135,7 +152,6 @@ button {
 #background-container-profile {
     display: flex;
     flex-direction: column;
-
     background-color: #FFEECF;
     border: solid 20px #D36582;
     height: fit-content;
@@ -148,12 +164,14 @@ button {
 .buttons-container{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    margin-left: 50px;
-    margin-right: 50px;
+    justify-content: center;
 }.buttons-container button{
     margin-top: 5px;
     margin-right: 5px;
+}.buttons-container a{
+    text-decoration: none;
+}.buttons-container button:hover{
+    box-shadow: 5px 2px 1px #343434;
 }
 
 #lists {

@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% block content%}
 <h1>Your Animals</h1>
-<div id = "background-container">
     <section id="animal-shelter">
         {% for animal in animals %}
             <a href="{% url 'your-animal-details' animal.id %}">
@@ -16,5 +15,4 @@
             </a>
         {% endfor %}
     </section>
-</div>
 {% endblock%}
