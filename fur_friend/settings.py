@@ -27,7 +27,7 @@ MEDIA_URL = 'media/'
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('emmaisthebest')
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -49,7 +49,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware",
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -82,8 +82,8 @@ WSGI_APPLICATION = 'fur_friend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+
 if 'ON_HEROKU' in os.environ:
-    DEBUG = True
     DATABASES = {
         "default": dj_database_url.config(
             env='DATABASE_URL',
@@ -96,10 +96,11 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': BASE_DIR / 'db.sqlite3',
-            # The value of 'NAME' should match the value of 'NAME' you replaced.
+            'NAME': 'fur_friend'
         }
     }
+
+
 
 
 
