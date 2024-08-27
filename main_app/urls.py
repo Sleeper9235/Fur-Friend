@@ -19,7 +19,11 @@ urlpatterns = [
     path('animals/<int:pk>/update/', views.AnimalUpdate.as_view(), name='animal-update'),
     path('animals/<int:pk>/delete/', views.AnimalDelete.as_view(), name='animal-delete'),
     path('animalShelter/Create/', views.AnimalShelterCreate.as_view(), name='animal-shelter-create'),
+    path('animalShelter/<int:pk>/update/', views.AnimalShelterUpdate.as_view(), name='animal-shelter-update'),
+    path('animalShelter/<int:pk>/delete/', views.AnimalShelterDelete.as_view(), name='animal-shelter-delete'),
     path('animalList/Create/', views.AnimalListCreate.as_view(), name="animal-list-create"),
+    path('animalList/<int:pk>/update/', views.AnimalListUpdate.as_view(), name='animal-list-update'),
+    path('animalList/<int:pk>/delete/', views.AnimalListDelete.as_view(), name='animal-list-delete'),
     path('animals/<int:animal_id>/addAnimalList/<int:list_id>', views.add_animal_list, name="add-animal-list"),
 
 ]

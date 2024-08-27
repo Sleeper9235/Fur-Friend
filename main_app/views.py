@@ -154,9 +154,26 @@ class AnimalShelterCreate(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user 
         return super().form_valid(form)
     
+class AnimalShelterUpdate(LoginRequiredMixin, UpdateView):
+    model = AnimalShelter
+    fields = ['name']
+    
+class AnimalShelterDelete(LoginRequiredMixin, DeleteView):
+    model = AnimalShelter
+    success_url = '/profile/'
+    
+    
 class AnimalListCreate(LoginRequiredMixin, CreateView):
     model = AnimalList
     fields = ['name']
+    
+class AnimalListUpdate(LoginRequiredMixin, UpdateView):
+    model = AnimalList
+    fields = ['name']
+    
+class AnimalListDelete(LoginRequiredMixin, DeleteView):
+    model = AnimalList
+    success_url = '/profile/'
     
     def form_valid(self, form):
         form.instance.user = self.request.user  

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}  
+{% load static %} 
+{% block content %}
+
+
+    <div>
+        <div class="page-header">
+        <h1>Delete List?</h1>
+        </div>
+
+        <h2>Are you sure you want to delete {{ object.name }}?</h2>
+
+        <form action="" method="post" class="form">
+        {% csrf_token %}
+        <a href="{% url 'animal-profile' animal.id %}" class="button-form" >Cancel</a>
+        <br />
+        <br />
+        <button type="submit" class="button-form" >Yes - Delete!</button>
+        </form>
+    </div>
+
+
+{% endblock %}

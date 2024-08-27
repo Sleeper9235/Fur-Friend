@@ -4,25 +4,25 @@
     <div class="buttons-container">
         <div>
             <button class="button" ><a href="{% url 'animal-create' %}">Add an Animal</a></button>
-            <button class="button" ><a href="{% url 'your-animals' %}">Your Animals</a></button>
+            <button class="button" ><a href="{% url 'your-animals' %}">All Animals</a></button>
         </div>
         <div>
             {% if not animal_shelter %}
-                <button class="button" ><a href="{% url 'animal-shelter-create' %}">Add an Animal Shelter</a></button>
+                <button class="button" ><a href="{% url 'animal-shelter-create' %}">Create Animal Shelter</a></button>
             {% else %}
                 {% for shelter in animal_shelter %}
-                    {% if user != shelter.user %}
-                        <button class="button" ><a href="{% url 'animal-shelter-create' %}">Add an Animal Shelter</a></button>
+                    {% if user == shelter.user %}
+                        <button class="button" ><a href="{% url 'animal-shelter-update' %}">Update Animal Shelter</a></button>
                     {% endif %}        
                 {% endfor %}
             {% endif %}
 
             {% if not animal_list %}
-                <button class="button" ><a href="{% url 'animal-list-create' %}">Create your List</a></button>
+                <button class="button" ><a href="{% url 'animal-list-create' %}">Create List</a></button>
             {% else %}
                 {% for list in animal_list %}
                     {% if user != list.user %}
-                        <button class="button" ><a href="{% url 'animal-list-create' %}">Create your List</a></button>
+                        <button class="button" ><a href="{% url 'animal-list-update' %}">Update List</a></button>
                     {% endif %}  
                 {% endfor %}
             {% endif %}
