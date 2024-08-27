@@ -1,80 +1,78 @@
 {% extends 'base.html' %}
 {% block content%}
-<div>
+<div style="width:100%;">
     <div class="buttons-container">
         <div>
-            <button><a href="{% url 'animal-create' %}">Add an Animal</a></button>
-            <button><a href="{% url 'your-animals' %}">Your Animals</a></button>
+            <button class="button" ><a href="{% url 'animal-create' %}">Add an Animal</a></button>
+            <button class="button" ><a href="{% url 'your-animals' %}">Your Animals</a></button>
         </div>
         <div>
-            {% if not animal_list %}
-                <button><a href="{% url 'animal-list-create' %}">Create your List</a></button>
-            {% else %}
-                {% for list in animal_list %}
-                    {% if user != list.user %}
-                        <button><a href="{% url 'animal-list-create' %}">Create your List</a></button>
-                    {% endif %}  
-                {% endfor %}
-            {% endif %}
-
             {% if not animal_shelter %}
-                <button><a href="{% url 'animal-shelter-create' %}">Add an Animal Shelter</a></button>
+                <button class="button" ><a href="{% url 'animal-shelter-create' %}">Add an Animal Shelter</a></button>
             {% else %}
                 {% for shelter in animal_shelter %}
                     {% if user != shelter.user %}
-                        <button><a href="{% url 'animal-shelter-create' %}">Add an Animal Shelter</a></button>
+                        <button class="button" ><a href="{% url 'animal-shelter-create' %}">Add an Animal Shelter</a></button>
                     {% endif %}        
+                {% endfor %}
+            {% endif %}
+
+            {% if not animal_list %}
+                <button class="button" ><a href="{% url 'animal-list-create' %}">Create your List</a></button>
+            {% else %}
+                {% for list in animal_list %}
+                    {% if user != list.user %}
+                        <button class="button" ><a href="{% url 'animal-list-create' %}">Create your List</a></button>
+                    {% endif %}  
                 {% endfor %}
             {% endif %}
         </div>
     </div>
     <div>
         <h1>Profile Page</h1>
-    </div>
-    <div id="lists">
-        <div>
-            {% for shelter in animal_shelter %}
-                {% if user == shelter.user %}
-                    <h2>{{shelter}}</h2>
-                    <div id="shelter">
-                        {% for animal in shelter.animal.all %}
-                            <a class="list-items" href="{% url 'animal-details' animal.id %}">
-                            <section class="container-list">
-                                <div class="animalcontainer">
-                                    <img src={{ animal.image.url }} alt={{animal.name}} class="image"/>
-                                        <div class="middle">
-                                            <div class="animalName">{{animal.name}}</div>
-                                        </div>
-                                </div>
-                            </section>
-                            </a>
-                        {% endfor %}
-                    </div>
-                {% endif %}
-            {% endfor %}
-        </div>
-        <div>
-            {% for list in animal_list %}
-                {% if user == list.user %}
-                    <h2>{{list}}</h2>
-                    <div id="my-list">
-                        {% for animal in list.animals.all %}
-                            <a href="{% url 'animal-list-details' animal.id %}">
+        <div id="lists">
+            <div>
+                {% for shelter in animal_shelter %}
+                    {% if user == shelter.user %}
+                        <h2>{{shelter}}</h2>
+                        <div id="shelter">
+                            {% for animal in shelter.animal.all %}
+                                <a class="list-items" href="{% url 'animal-details' animal.id %}">
                                 <section class="container-list">
                                     <div class="animalcontainer">
                                         <img src={{ animal.image.url }} alt={{animal.name}} class="image"/>
-                                        <div class="middle">
-                                            <div class="animalName">{{animal.name}}</div>
-                                        </div>
+                                            <div class="middle">
+                                                <div class="animalName">{{animal.name}}</div>
+                                            </div>
                                     </div>
                                 </section>
-                            </a>
-                        {% endfor %}
-                    </div>
-                {% endif %}
-            {% endfor %}
+                                </a>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div>
+                {% for list in animal_list %}
+                    {% if user == list.user %}
+                        <h2>{{list}}</h2>
+                        <div id="my-list">
+                            {% for animal in list.animals.all %}
+                                <a href="{% url 'animal-list-details' animal.id %}">
+                                    <section class="container-list">
+                                        <div class="animalcontainer">
+                                            <img src={{ animal.image.url }} alt={{animal.name}} class="image"/>
+                                            <div class="middle">
+                                                <div class="animalName">{{animal.name}}</div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </a>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
         </div>
-    </div>
-</div>
 
 {% endblock%}

@@ -26,18 +26,19 @@ class Interest(models.Model):
 
 FIXING_CHOICES = (('Spayed', 'Spayed'), ('Neutered', 'Neutered'), ('Not Applicable', 'Not Applicable'))
 GENDER_CHOICES = (('Female', 'Female'), ('Male', 'Male'))
+TYPE_CHOICES = (('Dog', 'Dog'), ('Cat', 'Cat'))
 
 class Animal(models.Model):
     name = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='media/', null=True, blank=True)
+    image = models.ImageField(upload_to='media/', default="media/paw-print-heart-connected_78370-3265.avif", null=True, blank=True)
     placeholder = models.CharField(max_length=100, default=" ", editable=False)
-    gender = models.CharField(max_length=6, choices=GENDER_CHOICES, default=None, null=True)
+    gender = models.CharField(max_length=6, choices=GENDER_CHOICES, default=None)
     age = models.IntegerField()
     likes = models.ManyToManyField(Interest, blank=True)
     personality = models.ManyToManyField(Trait, blank=True)
     breed = models.CharField(max_length=100)
-    type = models.CharField(max_length=100)
-    fixed = models.CharField(max_length=14, choices=FIXING_CHOICES, default=None, null=True)
+    type = models.CharField(max_length=3, choices=TYPE_CHOICES, default=None)
+    fixed = models.CharField(max_length=14, choices=FIXING_CHOICES, default=None)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     
     def get_absolute_url(self):

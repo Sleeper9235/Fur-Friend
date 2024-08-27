@@ -5,8 +5,7 @@
 {% endblock %} 
 {% block content %}
 
-
-<div id = "background-container">
+<div style="height:fit-content;">
   <div>
     <div class="page-header">
       {% if animal %}
@@ -17,12 +16,14 @@
     </div>
 
     <div>
-      <form action="" method="post" class="form-container">
+      {% comment %} https://stackoverflow.com/questions/680770/django-imagefield-not-working-properly-via-modelform {% endcomment %}
+      {% comment %} https://stackoverflow.com/questions/4526273/what-does-enctype-multipart-form-data-mean {% endcomment %}
+      <form enctype="multipart/form-data" action="" method="post" class="form-container">
         {% csrf_token %}
         <table>
           {{ form.as_table }}
         </table>
-        <button type="submit" class="btn submit">Submit!</button>
+        <button type="submit" class="button-form" >Submit!</button>
       </form>
     </div>
   </div>

@@ -8,8 +8,8 @@ body {
     font-weight: bolder;
     text-align: center;
     background-color: #FFFF8F;
-    height: 100vh;
-    width: 100vw;
+    height: fit-content;
+    width: 98vw;
 }
 
 nav ul {
@@ -25,7 +25,7 @@ nav ul li{
 footer {
     font-size: x-large;
     width: 100%;
-    height: 80px;
+    height: 50px;
     padding: 1px;
     border-radius: 35px;
     position: fixed;
@@ -37,29 +37,35 @@ footer {
 section {
     display: flex;
     justify-content: center;
-    height: 70%;
 }
 
-button {
-    font-weight: bolder;
+.button {
+    font-weight: bold;
+    font-family: "Happy Monkey", sans-serif;
+    font-size: large;
     background-color:#f39c12;
     border: solid 2px #343434;
     color: #343434;
     padding: 10px;
     border-radius: 12px;
     margin-bottom: 5px;
+}.button:hover{
+    box-shadow: 5px 2px 1px #343434;
 }
 
 .nav-a {
     font-weight: bold;
     margin: auto;
-    margin-right: 5px;
+    margin-right: 10px;
     background-color:#f39c12;
     border: solid 2px #343434;
     color: #343434;
-    padding: 7px;
+    padding: 10px;
     border-radius: 12px;
+    margin-bottom: 5px;
     text-decoration: none;
+}.nav-a:hover{
+    box-shadow: 5px 2px 1px #343434;
 }
 
 .container-list {
@@ -119,10 +125,9 @@ button {
     justify-content: space-evenly;
     background-color: #85c1e9;
     border: solid 20px #2980b9;
-    height: 100%;
+    height: 105%;
     width: 50%;
     border-radius: 100px;
-    margin-top: 5px;
 }
 
 #card-table{
@@ -134,32 +139,19 @@ button {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    scroll-behavior: smooth;    
 }
 
 .like{
-    background-color: #FFEECF;
-    border: 0px #FFEECF;
+    background-color: #85c1e9;
+    border: 0px #85c1e9;
     padding: 0;
 }
 
 .dont-like{
-    background-color: #FFEECF;
-    border: 0px #FFEECF;
+    background-color: #85c1e9;
+    border: 0px #85c1e9;
     padding: 0;
 }
-
-#background-container-profile {
-    display: flex;
-    flex-direction: column;
-    background-color: #FFEECF;
-    border: solid 20px #D36582;
-    height: fit-content;
-    width: min(100%, fit-content);
-    border-radius: 100px;
-    margin-top: 5px;
-}
-
 
 .buttons-container{
     display: flex;
@@ -170,14 +162,11 @@ button {
     margin-right: 5px;
 }.buttons-container a{
     text-decoration: none;
-}.buttons-container button:hover{
-    box-shadow: 5px 2px 1px #343434;
 }
 
 #lists {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     width: 100%;
 }
 
@@ -185,11 +174,28 @@ button {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 #my-list{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
+.button-form {
+    font-weight: bold;
+    font-family: "Happy Monkey", sans-serif;
+    font-size: large;
+    background-color:#f39c12;
+    border: solid 2px #343434;
+    color: #343434;
+    width: fit-content;
+    margin-left: 75%;
+    padding: 10px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}.button-form:hover{
+    box-shadow: 5px 2px 1px #343434;
+}

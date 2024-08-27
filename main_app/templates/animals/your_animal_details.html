@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% block content%}
-<h1>Detail page for your animal</h1>
-    <div>
+
+<div>
+    <h1>Detail page for your animal</h1>
         <div>
             <section class="container-list">
                 <img src={{ animal.image.url }} alt={{animal.name}} class="image"/>
@@ -16,15 +17,15 @@
                 <p> Likes: {%for likes in animal.likes.all%}{{likes}}<br />{% endfor %}</p>
                 <p> Personality Traits: {%for trait in animal.personality.all%}{{trait}}<br />{% endfor %}</p>
                 <div class="animal-actions">
-                    <a href="{% url 'animal-update' animal.id %}" ><button>Edit</button></a>
-                    <a href="{% url 'animal-delete' animal.id %}" ><button>Delete</button></a>
+                    <a href="{% url 'animal-update' animal.id %}" ><button class="button">Edit</button></a>
+                    <a href="{% url 'animal-delete' animal.id %}" ><button class="button">Delete</button></a>
                     
                     {% if animal.placeholder == " " %}
-                        <a href="{% url 'toggle-shelter' animal.id %}"><button>Add to Shelter</button></a>
+                        <a href="{% url 'toggle-shelter' animal.id %}"><button class="button" >Add to Shelter</button></a>
                     {% else %}
-                        <a href="{% url 'remove-animal' animal.id animal.placeholder %}"><button>Remove From Shelter</button></a>
+                        <a href="{% url 'remove-animal' animal.id animal.placeholder %}"><button class="button" >Remove From Shelter</button></a>
                     {% endif %}
-                </div> 
-            </div>
+            </div> 
         </div>
+</div>
 {% endblock%}

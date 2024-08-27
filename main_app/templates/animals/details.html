@@ -1,20 +1,19 @@
 {% extends 'base.html' %}
 {% block content%}
-<h1>Detail page for each animal</h1>
-    <div>
-        <div>
-            <section class="container-list">
-                <img src={{ animal.image.url }} alt={{animal.name}} class="image"/>
-            </section>
-            <div style="text-align:left;"class='animal-details'>
-                <h1>{{animal.name}}</h1>
-                <p> Type of Animal: {{animal.type}}</p>
-                <p> Breed: {{animal.breed}}
-                <p> Spayed/Neutered: {{animal.fixed}}</p>
-                <p> Age: {{animal.age}}</p>
-                <p> Gender: {{animal.gender}}</p>
-                <p> Likes: {%for likes in animal.likes.all%}{{likes}}<br />{% endfor %}</p>
-                <p> Personality Traits: {%for trait in animal.personality.all%}{{trait}}<br />{% endfor %}</p>
-            </div>
+<div>
+    <h1>Detail page for each animal</h1>
+        <section class="container-list">
+            <img src={{ animal.image.url }} alt={{animal.name}} class="image"/>
+        </section>
+        <div style="text-align:left;"class='animal-details'>
+            <h1>{{animal.name}}</h1>
+            <p> Type of Animal: {{animal.type}}</p>
+            <p> Breed: {{animal.breed}}
+            <p> Spayed/Neutered: {{animal.fixed}}</p>
+            <p> Age: {{animal.age}}</p>
+            <p> Gender: {{animal.gender}}</p>
+            <p> Likes: {%for likes in animal.likes.all%}{{likes}}<br />{% endfor %}</p>
+            <p> Personality Traits: {%for trait in animal.personality.all%}{{trait}}<br />{% endfor %}</p>
         </div>
+</div>
 {% endblock%}

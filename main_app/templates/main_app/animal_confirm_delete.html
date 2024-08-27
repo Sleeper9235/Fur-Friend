@@ -2,7 +2,7 @@
 {% load static %} 
 {% block content %}
 
-<div id = "background-container">
+
     <div>
         <div class="page-header">
         <h1>Delete Animal?</h1>
@@ -13,10 +13,12 @@
 
         <form action="" method="post" class="form">
         {% csrf_token %}
-        <a href="{% url 'animal-details' animal.id %}" class="btn secondary">Cancel</a>
-        <button type="submit" class="btn danger">Yes - Delete!</button>
+        <a href="{% url 'animal-details' animal.id %}" class="button-form" >Cancel</a>
+        <br />
+        <br />
+        <button type="submit" class="button-form" >Yes - Delete!</button>
         </form>
     </div>
-</div>
+
 
 {% endblock %}

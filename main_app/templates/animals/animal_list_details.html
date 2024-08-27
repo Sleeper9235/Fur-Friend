@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content%}
-<h1>Detail page for your animal</h1>
-    <div>
+<div>
+    <h1>Detail page for your animal</h1>
         <div>
             <section class="container-list">
                 <img src={{ animal.image.url }} alt={{animal.name}} class="image"/>
@@ -16,8 +16,8 @@
                 <p> Likes: {%for likes in animal.likes.all%}{{likes}}<br />{% endfor %}</p>
                 <p> Personality Traits: {%for trait in animal.personality.all%}{{trait}}<br />{% endfor %}</p>
                 <div class="animal-actions">
-                        <a href="{% url 'list-remove-animal' animal.id %}"><button>Remove From List</button></a>
-                </div> 
-            </div>
+                        <a href="{% url 'list-remove-animal' animal.id %}"><button class="button" >Remove From List</button></a>
+            </div> 
         </div>
+</div>
 {% endblock%}

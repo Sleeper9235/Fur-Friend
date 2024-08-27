@@ -4,9 +4,6 @@
 <link rel="stylesheet" href="{% static 'css/form.css' %}" />
 {% endblock %} 
 {% block content %}
-
-
-<div id = "background-container">
   <div>
     <div class="page-header">
       {% if object %}
@@ -21,8 +18,7 @@
       <table>
         {{ form.as_table }}
       </table>
-      <button type="submit" class="btn submit">Submit!</button>
+      <button type="submit" class="button-form" >Submit!</button>
     </form>
   </div>
-</div>
 {% endblock %}
