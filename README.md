@@ -3,7 +3,7 @@
 
 ## What is it?
 
-Fur friends is an app that helps with the perious search for that perfect companion. Fur friends is a place for Animal Rescues, Shelters, and Foster Parents to display their loved ones in hopes for the perfect match. And a place for want to be animal owners to view Animals displayed by the Rescues, Shelters, and Foster Parents.
+Fur friends is an app that helps with the perilous search for that perfect companion. Fur friends is a place for Rescues, Shelters, and Fosters to display their loved ones in hopes for the perfect match with a want to be animal owner.
 
 ## All The Links
 
@@ -11,6 +11,12 @@ Fur friends is an app that helps with the perious search for that perfect compan
 * [Deployed Site](https://fur-friend-app-7f1a72d680b7.herokuapp.com/)
 
 ## Attributions
+
+* [~Q](https://docs.djangoproject.com/en/5.1/topics/db/queries/)
+
+* [django admin](https://docs.djangoproject.com/en/dev/ref/contrib/admin/#django.contrib.admin.ModelAdmin.list_display)
+
+* [default image](https://www.freepik.com/free-vector/paw-print-heart-connected_77951301.htm#query=dog%20paw%20outline&position=6&from_view=keyword&track=ais_hybrid&uuid=de074506-c2b1-4c38-82f0-0377340c8c88)
 
 * [Phone Numbers](https://stackoverflow.com/questions/19130942/whats-the-best-way-to-store-a-phone-number-in-django-models)
 
@@ -36,3 +42,5 @@ Fur friends is an app that helps with the perious search for that perfect compan
 * Would like to implement JS with Ajax or something similar, to help with the user interactivity and not needing to refresh the page.
 
 * would like to better refine the random search for the animal cards to display
+
+* would like to address heroku issue with storing files uploaded during deployment.

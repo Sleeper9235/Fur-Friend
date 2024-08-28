@@ -41,7 +41,6 @@ def animals_index(request):
     for animals in all_animals:
         pks.append(animals.pk)  
     
-    print(pks)
     if pks:
         random_pk = random.choice(pks)
         animal = Animal.objects.get(pk=random_pk)

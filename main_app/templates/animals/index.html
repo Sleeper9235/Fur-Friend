@@ -6,7 +6,6 @@
 {% block content%}
     <div id="card-table">
         <h1>Find your Fur Friends!</h1>
-    
         {% if animal != None %}
             {% for list in animal_list %}
                 {% if animal not in list.animals.all %}
@@ -51,13 +50,11 @@
                     </div>
                 {% endif %}
             {% endfor %}
-
             <div class='icon-container'>
                 <form action="{% url 'animal-index' %}" method="post">
                     {% csrf_token %}
                     <button class="dont-like"><div class='x-icon'></div></button>
                 </form>
-
                 {% for list in animal_list %}
                     {% if list.user == user %}
                     <form action="{% url 'add-animal-list' animal.id  list.id %}" method="post">
