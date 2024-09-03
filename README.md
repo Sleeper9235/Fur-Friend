@@ -1,5 +1,5 @@
 # Fur Friends
-<img src="media/media/fur_friends.png">
+<img src="media/media/app_photo.png">
 
 ## What is it?
 
